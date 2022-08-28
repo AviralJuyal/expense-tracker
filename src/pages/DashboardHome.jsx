@@ -49,6 +49,8 @@ function DashboardHome() {
 
           </div>
         </div>
+          </div>
+        </div>
 
 
         <div className="cardMain">
