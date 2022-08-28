@@ -179,5 +179,35 @@
 }
 
 
+.containerDashboard {
+  display: flex;
+  justify-content: center;
 
+}
 
+.cardBody{
+  display: flex;
+  justify-content: space-between;
+}
+
+.imgCash{
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+  height: 40px;
+  width: 45px;
+  background-color: #363535;
+  border-radius: 40px;
+
+}
+
+.cardMain{
+  width: 400px;
+}
+
+.contentCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

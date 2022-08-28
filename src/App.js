@@ -23,6 +23,7 @@ function App() {
   return (
     <div className=' mt-2'>
       <Dashboard/>
+      
       {/* <button type="button" class="btn btn-success mx-2" onClick={openModalLogin}>Login</button>
       <button type="button" class="btn btn-primary me-2" onClick={openModalRegister}>Register</button>
       <Modal visible={modalLogin} width="318" height="336" effect="fadeInUp" onClickAway={closeModal}>
