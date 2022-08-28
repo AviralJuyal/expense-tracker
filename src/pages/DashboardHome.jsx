@@ -38,16 +38,18 @@ function DashboardHome() {
       <SideNav />
 
       {/* </div> */}
-      <div className="containerDashboard mt-2 ">
-        <div className="w-50 px-5">
-          <div class="card bg-dark  text-light">
-            <div class="card-body ">
-              <div>
-                <p>Spend in </p> <p>Aug 27- Aug-30</p>
-              </div>
-            </div>
+
+    <div className='containerDashboard mt-2 '>
+
+<div className='w-50 px-5'>
+    <div className="card bg-dark  text-light">
+        <div className="card-body ">
+          <div>
+            <p>Spend in </p> <p>Aug 27- Aug-30</p>
+
           </div>
         </div>
+
 
         <div className="cardMain">
           {expenseData.map((e)=>{
@@ -56,6 +58,7 @@ function DashboardHome() {
             )
           })}
           
+
         </div>
       </div>
     </div>

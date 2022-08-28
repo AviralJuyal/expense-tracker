@@ -1,6 +1,5 @@
 import './App.css';
 import Login from './Components/Login';
-import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from './pages/Home'
 import DashboardHome from './pages/DashboardHome'
@@ -25,8 +24,8 @@ function App() {
   return (
     <div className=' mt-2'>
       {/* <Dashboard/> */}
-      {/* <button type="button" class="btn btn-success mx-2" onClick={openModalLogin}>Login</button>
-      <button type="button" class="btn btn-primary me-2" onClick={openModalRegister}>Register</button>
+      {/* <button type="button" className="btn btn-success mx-2" onClick={openModalLogin}>Login</button>
+      <button type="button" className="btn btn-primary me-2" onClick={openModalRegister}>Register</button>
       <Modal visible={modalLogin} width="318" height="336" effect="fadeInUp" onClickAway={closeModal}>
         <Login/>
       </Modal>
@@ -39,6 +38,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About/>} />
+          <Route path="/login" element={<Login/>} />
           <Route path="/dashboard-home" element={<DashboardHome/>} />
           <Route path="/dashboard-analysis" element={<DashboardAnalysis/>} />
         </Routes>
