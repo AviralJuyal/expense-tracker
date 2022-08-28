@@ -6,7 +6,7 @@ const Login = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     // console.log(formData)
-    const res = await fetch('http://localhost:8080/api/login' , {
+    const res = await fetch('https://map-travel-app-backend.herokuapp.com/api/login' , {
       method:'POST',
       headers:{
         "Content-Type": "application/json",

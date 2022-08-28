@@ -4,7 +4,7 @@ const Register = () => {
   const [formData, setFormData] = useState({email:"" , password:""});
   const handleSubmit = async(e) => {
     e.preventDefault();
-    const res = await fetch('http://localhost:8080/api/signup' , {
+    const res = await fetch('https://map-travel-app-backend.herokuapp.com/api/signup' , {
       method:'POST',
       headers:{
         "Content-Type": "application/json",
