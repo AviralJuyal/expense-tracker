@@ -14,6 +14,7 @@ const Login = () => {
     })
     const result  = await res.json();
     console.log(result , 'result')
+    localStorage.setItem('userToken', result.userToken);
     setFormData({
       email:"" , password:""
      })
