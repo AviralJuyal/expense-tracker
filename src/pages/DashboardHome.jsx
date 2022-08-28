@@ -13,8 +13,8 @@ function DashboardHome() {
     <div className='containerDashboard mt-2 '>
 
 <div className='w-50 px-5'>
-    <div class="card bg-dark  text-light">
-        <div class="card-body ">
+    <div className="card bg-dark  text-light">
+        <div className="card-body ">
           <div>
             <p>Spend in </p> <p>Aug 27- Aug-30</p>
           </div>
@@ -23,8 +23,8 @@ function DashboardHome() {
 </div>
 
 <div className='cardMain'>
-<div class="card bg-dark text-light mb-4 ">
-        <div class="card-body cardBody">
+<div className="card bg-dark text-light mb-4 ">
+        <div className="card-body cardBody">
             <div className='imgCash'>
                 <img src={icon} alt="" height='20px'/>
             </div>
