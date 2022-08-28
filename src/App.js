@@ -3,6 +3,7 @@ import Login from './Components/Login';
 import Modal from 'react-awesome-modal';
 import { useState } from 'react';
 import Register from './Components/Register';
+import Dashboard from './Components/Dashboard';
 
 function App() {
   const [modalLogin, setmodalLogin] = useState(false)
@@ -20,9 +21,9 @@ function App() {
   }
 
   return (
-    <div className='mainBody mt-2'>
-      
-      <button type="button" class="btn btn-success mx-2" onClick={openModalLogin}>Login</button>
+    <div className=' mt-2'>
+      <Dashboard/>
+      {/* <button type="button" class="btn btn-success mx-2" onClick={openModalLogin}>Login</button>
       <button type="button" class="btn btn-primary me-2" onClick={openModalRegister}>Register</button>
       <Modal visible={modalLogin} width="318" height="336" effect="fadeInUp" onClickAway={closeModal}>
         <Login/>
@@ -30,7 +31,7 @@ function App() {
 
       <Modal visible={modalRegister} width="318" height="336" effect="fadeInUp" onClickAway={closeModal}>
         <Register/>
-      </Modal>
+      </Modal> */}
     </div>
   );
 }
