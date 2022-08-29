@@ -6,14 +6,23 @@ import Modal from 'react-awesome-modal'
 const SideNav = () => {
   const [modalAdd, setModalAdd] = useState(false);
   const [items, setItems] = useState({
-    price:'' , purpose:'', title:'', desc:''
+    price:'' , purpose:'', title:'', description:''
   });
 
-  const addItems = (e) => {
+  const addItems = async(e) => {
     e.preventDefault();
-
-    console.log(items);
-    setItems({price:'' , purpose:'', title:'', desc:''})
+    let userToken = await localStorage.getItem('userToken')
+    const res = await fetch('https://map-travel-app-backend.herokuapp.com/api/expense' , {
+      method:'POST',
+      headers:{
+        "Content-Type": "application/json",
+        userToken
+      },
+      body:JSON.stringify(items)
+    })
+    const result  = await res.json();
+    console.log(result , 'result');
+    // setItems({price:'' , purpose:'', title:'', desc:''})
   }
 
   return (
@@ -68,7 +77,7 @@ const SideNav = () => {
             </ul>
           </div>
           <input type="text" placeholder='title' value={items.title} onChange={(e)=>setItems({...items, title:e.currentTarget.value})}/>
-          <input type="text" placeholder='description' value={items.desc} onChange={(e)=>setItems({...items, desc:e.currentTarget.value})}/>
+          <input type="text" placeholder='description' value={items.desc} onChange={(e)=>setItems({...items, description:e.currentTarget.value})}/>
           <button type="submit btn btn-dark text-light">Add Item</button>
         </form>
       </Modal>
