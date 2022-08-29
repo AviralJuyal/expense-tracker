@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import '../assets/css/sidebar.css'
 import Modal from 'react-awesome-modal'
 
-const SideNav = () => {
+const SideNav = (props) => {
   const [modalAdd, setModalAdd] = useState(false);
   const [items, setItems] = useState({
     price:'' , purpose:'', title:'', description:''
@@ -22,7 +22,9 @@ const SideNav = () => {
     })
     const result  = await res.json();
     console.log(result , 'result');
-    // setItems({price:'' , purpose:'', title:'', desc:''})
+    props.setApiCall(false)
+    setModalAdd(false)
+    setItems({price:'' , purpose:'', title:'', description:''})
   }
 
   return (
@@ -47,10 +49,6 @@ const SideNav = () => {
 
             </li>
             <li className="nav-item">
-              <Link to='/dashboard-analysis' className="nav-link">Profile</Link>
-
-            </li>
-            <li className="nav-item">
               <Link to='/dashboard-analysis' className="nav-link">Logout</Link>
             </li>
             <li>
@@ -70,10 +68,10 @@ const SideNav = () => {
             </button>
             {items.purpose && <p>{items.purpose}</p>}
             <ul className="dropdown-menu">
-              <li><button className="dropdown-item" type="button" onClick={()=>setItems({...items, purpose:'others'})}>Others</button></li>
-              <li><button className="dropdown-item" type="button" onClick={()=>setItems({...items, purpose:'food'})}>Food</button></li>
-              <li><button className="dropdown-item" type="button" onClick={()=>setItems({...items, purpose:'shopping'})}>Shopping</button></li>
-              <li><button className="dropdown-item" type="button" onClick={()=>setItems({...items, purpose:'travel'})}>Travel</button></li>
+              <li><button className="dropdown-item" type="button" onClick={()=>setItems({...items, purpose:'Others'})}>Others</button></li>
+              <li><button className="dropdown-item" type="button" onClick={()=>setItems({...items, purpose:'Food'})}>Food</button></li>
+              <li><button className="dropdown-item" type="button" onClick={()=>setItems({...items, purpose:'Shopping'})}>Shopping</button></li>
+              <li><button className="dropdown-item" type="button" onClick={()=>setItems({...items, purpose:'Travel'})}>Travel</button></li>
             </ul>
           </div>
           <input type="text" placeholder='title' value={items.title} onChange={(e)=>setItems({...items, title:e.currentTarget.value})}/>
