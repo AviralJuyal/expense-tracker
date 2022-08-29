@@ -16,6 +16,12 @@ const SideNav = () => {
     setItems({price:'' , purpose:'', title:'', desc:''})
   }
 
+  const handleLogout = ()=>{
+    localStorage.removeItem('userToken');
+    // console.log(localStorage.getItem('userToken'));
+    window.location = '/'
+  }
+
   return (
     <div className="container-fluid">
     <div className="row min-vh-100 flex-column flex-md-row">
@@ -41,35 +47,41 @@ const SideNav = () => {
               <Link to='/dashboard-analysis' className="nav-link">Profile</Link>
 
             </li>
-            <li className="nav-item">
-              <Link to='/dashboard-analysis' className="nav-link">Logout</Link>
+            <li className="nav-item pointDiv">
+              <div  className="nav-link" onClick={handleLogout}>Logout</div>
             </li>
-            <li>
-              <button className='nav-item bg-dark text-light btn' onClick={()=>setModalAdd(true)}>Add Item</button>
+            <li className="nav-item pointDiv">
+              <div className='nav-link ' onClick={()=>setModalAdd(true)}>Add Item</div>
             </li>
           </ul>
           </div>      
         </nav>   
       </aside>
-      <Modal visible={modalAdd} width="318" height="336" effect="fadeInUp" onClickAway={()=>setModalAdd(false)}>
-        <form onSubmit={addItems}>
-          <input type="number" placeholder='price' value={items.price} onChange={(e)=>setItems({...items, price:e.currentTarget.value})}/>  
+      <Modal visible={modalAdd} width="300" height="240" effect="fadeInUp" onClickAway={()=>{setModalAdd(false) ;setItems('')}}>
+        <form onSubmit={addItems} className='form container p-4 bg-dark text-light'>
+          <h3 className='display-6'>Add New Item</h3>
+          <input className='form-label' type="number" placeholder='Price' value={items.price} onChange={(e)=>setItems({...items, price:e.currentTarget.value})}/>  
           {/* <input type="text" placeholder='purpose' value={items.purpose} onChange={(e)=>setItems({...items, purpose:e.currentTarget.value})}/> */}
-          <div className="dropdown">
+         
+          <input className='form-label' type="text" placeholder='Title' value={items.title} onChange={(e)=>setItems({...items, title:e.currentTarget.value})}/>
+          <input className='form-label' type="text" placeholder='Description' value={items.desc} onChange={(e)=>setItems({...items, desc:e.currentTarget.value})}/> <br />
+          <div className="dropdown ">
             <button className="btn btn-secondary dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">
               Purpose
             </button>
-            {items.purpose && <p>{items.purpose}</p>}
+            {items.purpose && <p className='h6 mt-2'>{items.purpose}</p>}
             <ul className="dropdown-menu">
-              <li><button className="dropdown-item" type="button" onClick={()=>setItems({...items, purpose:'others'})}>Others</button></li>
+              <li><button className="dropdown-item" type="button" onClick={()=>setItems({...items, purpose:'others'})}>Others</button></li> 
               <li><button className="dropdown-item" type="button" onClick={()=>setItems({...items, purpose:'food'})}>Food</button></li>
               <li><button className="dropdown-item" type="button" onClick={()=>setItems({...items, purpose:'shopping'})}>Shopping</button></li>
               <li><button className="dropdown-item" type="button" onClick={()=>setItems({...items, purpose:'travel'})}>Travel</button></li>
             </ul>
-          </div>
-          <input type="text" placeholder='title' value={items.title} onChange={(e)=>setItems({...items, title:e.currentTarget.value})}/>
-          <input type="text" placeholder='description' value={items.desc} onChange={(e)=>setItems({...items, desc:e.currentTarget.value})}/>
-          <button type="submit btn btn-dark text-light">Add Item</button>
+          </div><br />
+          <button type="submit" className='btn btn-dark text-light   '>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+</svg>
+          </button>
         </form>
       </Modal>
     </div>

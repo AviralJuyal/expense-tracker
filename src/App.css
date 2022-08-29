@@ -221,3 +221,7 @@ body{
 .sideNav{
   width: 700px;
 }
+
+.pointDiv{
+  cursor: pointer;
+}
