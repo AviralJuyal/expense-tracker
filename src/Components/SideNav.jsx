@@ -6,7 +6,7 @@ import Modal from 'react-awesome-modal'
 const SideNav = (props) => {
   const [modalAdd, setModalAdd] = useState(false);
   const [items, setItems] = useState({
-    price:'' , purpose:'', title:'', desc:''
+    price:'' , purpose:'', title:'', description:''
   });
 
   const addItems = async(e) => {
@@ -75,7 +75,7 @@ const SideNav = (props) => {
           {/* <input type="text" placeholder='purpose' value={items.purpose} onChange={(e)=>setItems({...items, purpose:e.currentTarget.value})}/> */}
          
           <input className='form-label' type="text" placeholder='Title' value={items.title} onChange={(e)=>setItems({...items, title:e.currentTarget.value})}/>
-          <input className='form-label' type="text" placeholder='Description' value={items.desc} onChange={(e)=>setItems({...items, desc:e.currentTarget.value})}/> <br />
+          <input className='form-label' type="text" placeholder='Description' value={items.description} onChange={(e)=>setItems({...items, description:e.currentTarget.value})}/> <br />
           <div className="dropdown ">
             <button className="btn btn-secondary dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">
               Purpose
