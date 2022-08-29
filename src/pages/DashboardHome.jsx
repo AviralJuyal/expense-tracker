@@ -1,6 +1,5 @@
 import React ,{useState, useEffect} from "react";
 import SideNav from "../Components/SideNav";
-import icon from "../cash-icon.png";
 import ExpenseCard from "../Components/ExpenseCard";
 
 
